@@ -1,0 +1,59 @@
+PROGRAMACION
+
+--------------------------------------------------------------------------------
+(1) Hacer  un  programa que ingrese letra por letra desde el teclado, terminando
+    el ingreso cuando haya ingresaoo un enter(cambio de línea \n).
+
+#include <stdio.h> //printf, scanf
+#define MAX 300
+int main() {
+    char letra;
+    char texto[MAX];
+    int i = 0;
+    
+    printf("Ingresar un texto? ");
+    while(1) {
+        letra = getchar();
+        
+        if(letra == '\n') break;
+        
+        texto[i] = letra; 
+        i++;    
+    }
+    texto[i] = '\0';
+    
+    printf("Texto ingresado: %s", texto);
+    
+    return 0;
+}	
+--------------------------------------------------------------------------------
+(2) Hacer un programa que determine si una palabra ingresada desde el teclado es
+    Palidromo o no.
+
+#include <stdio.h> //printf, scanf
+#include <string.h> //strlen
+#define MAX 30
+int main() {
+    char palabra[MAX];
+    int longitud;
+    int bandera = 1;
+    printf("Ingrese una palabra? ");
+    scanf("%s", palabra);
+    longitud = strlen(palabra);
+    for(int i=0, j=longitud-1   ; i<=longitud/2; i++,j--) {
+        if(palabra[i] != palabra[j]) {
+            bandera = 0;
+            break;
+        }
+    }
+    printf("Resultado: %s", bandera == 1? "Es Palidromo":"No Es Palidromo");
+    /*
+    a r r a  = 4           4/2 = 2
+    r e c o c e r = 7      7/2 = 3
+    */
+    return 0;
+}
+--------------------------------------------------------------------------------
+
+
+
